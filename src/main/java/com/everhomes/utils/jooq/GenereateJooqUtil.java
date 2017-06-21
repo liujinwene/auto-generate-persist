@@ -38,6 +38,12 @@ public class GenereateJooqUtil {
 	private RespJooqPrinter respPrinter;
 	@Autowired
 	private ConstantJooqPrinter constantPrinter;
+	@Autowired
+	private ServiceJooqPrinter servicePrinter;
+	@Autowired
+	private ServiceImplJooqPrinter serviceImplPrinter;
+	@Autowired
+	private ControllerJooqPrinter controllerPrinter;
 
 	
 	public void generatePersist(List<String> tableNames) throws Exception {
@@ -63,10 +69,22 @@ public class GenereateJooqUtil {
 			genereateCmd(tableName, columns);
 			generateResp(tableName, columns);
 			generateConstant(tableName, columns);
+			generateService(tableName, columns);
+			generateController(tableName, columns);
+			
 			result.close();
 		}
 		state.close();
 		con.close();
+	}
+
+	private void generateController(String tableName, List<ColumnObject> columns) throws IOException {
+		controllerPrinter.print(tableName, columns);
+	}
+
+	private void generateService(String tableName, List<ColumnObject> columns) throws IOException {
+		servicePrinter.print(tableName, columns);
+		serviceImplPrinter.print(tableName, columns);
 	}
 
 	private void generateConstant(String tableName, List<ColumnObject> columns) throws IOException {
