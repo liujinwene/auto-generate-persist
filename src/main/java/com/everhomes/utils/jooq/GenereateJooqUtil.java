@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.everhomes.utils.ColumnObject;
+import com.everhomes.utils.hibernate.PoPrinter;
 
 @Component
 public class GenereateJooqUtil {
@@ -28,6 +29,8 @@ public class GenereateJooqUtil {
 	private String tableSchema;
 	
 	
+	@Autowired
+	private PoJooqPrinter poPrinter;
 	@Autowired
 	private DaoJooqPrinter daoPrinter;
 	@Autowired
@@ -64,13 +67,13 @@ public class GenereateJooqUtil {
 			}
 			//add table name prefix
 			tableName = "test_"+tableName;
-			
-			genereateDao(tableName, columns);
-			genereateCmd(tableName, columns);
-			generateResp(tableName, columns);
-			generateConstant(tableName, columns);
-			generateService(tableName, columns);
-			generateController(tableName, columns);
+			genereatePo(tableName, columns);
+//			genereateDao(tableName, columns);
+//			genereateCmd(tableName, columns);
+//			generateResp(tableName, columns);
+//			generateConstant(tableName, columns);
+//			generateService(tableName, columns);
+//			generateController(tableName, columns);
 			
 			result.close();
 		}
@@ -102,6 +105,10 @@ public class GenereateJooqUtil {
 	private void genereateDao(String tableName, List<ColumnObject> columns) throws Exception {
 		daoPrinter.print(tableName, columns);
 		daoImplPrinter.print(tableName, columns);
+	}
+
+	private void genereatePo(String tableName, List<ColumnObject> columns) throws Exception {
+		poPrinter.print(tableName, columns);
 	}
 
 }
