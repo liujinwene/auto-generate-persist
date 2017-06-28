@@ -19,30 +19,30 @@ public class PoPrinter {
 	private String rootPath;
 	
 	public void print(String tableName, List<ColumnObject> columns) throws IOException {
-//		String componentPackage = TableConverter.getComponentPackage(tableName);
-//		String className = TableConverter.getClassName(tableName);
-//
-//		String componentPath = rootPath+File.separator+componentPackage;
-//		//新建目录
-//		String poPath = componentPath+File.separator+"po";
-//		File directory = new File(poPath);
-//		directory.mkdirs();
-//		//写文件
-//		String filePath = poPath+File.separator+className+".java";
-//
-//		BufferedWriter out = new BufferedWriter(new FileWriter(new File(filePath)));
-//
-//		writePackage(out, TableConverter.getComponentPackage(tableName));
-//		out.newLine();
-//		writeImport(out);
-//		out.newLine();
-//		writeClassHeaderAutowited(out, tableName);
-//		writeClassHeader(out, tableName);
-//		writeClassBody(out, columns);
-//		writeClassBottom(out);
-//
-//		out.flush();
-//		out.close();
+		String componentPackage = TableConverter.getComponentPackage(tableName);
+		String className = TableConverter.getClassName(tableName);
+
+		String componentPath = rootPath+File.separator+componentPackage;
+		//新建目录
+		String poPath = componentPath+File.separator+"po";
+		File directory = new File(poPath);
+		directory.mkdirs();
+		//写文件
+		String filePath = poPath+File.separator+className+".java";
+
+		BufferedWriter out = new BufferedWriter(new FileWriter(new File(filePath)));
+
+		writePackage(out, TableConverter.getComponentPackage(tableName));
+		out.newLine();
+		writeImport(out);
+		out.newLine();
+		writeClassHeaderAutowited(out, tableName);
+		writeClassHeader(out, tableName);
+		writeClassBody(out, columns);
+		writeClassBottom(out);
+
+		out.flush();
+		out.close();
 	}
 
 	private void writeClassBody(BufferedWriter out, List<ColumnObject> columns) throws IOException {

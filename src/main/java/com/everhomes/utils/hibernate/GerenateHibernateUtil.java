@@ -24,7 +24,7 @@ public class GerenateHibernateUtil {
 	private String userName;
 	@Value("${jdbc_password}")
 	private String password;
-	@Value("${jooq_table_schema}")
+	@Value("${table_schema}")
 	private String tableSchema;
 
 	@Autowired

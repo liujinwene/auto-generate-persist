@@ -25,11 +25,10 @@ public class GenerateHibernateTest {
 	@Test
 	public void test() throws Exception {
 		List<String> tableNames = new ArrayList<String>();
-		tableNames.add("tbl_custom_layout");
-		tableNames.add("tbl_custom_group");
-		tableNames.add("tbl_custom_item");
+		tableNames.add("tbl_shop_page");
+		tableNames.add("tbl_custom_page");
+		tableNames.add("tbl_custom_widget");
 		tableNames.add("tbl_commodity_group");
-		tableNames.add("tbl_banner");
 		tableNames.add("tbl_commodity_item");
 		
 		gerenateHibernateUtil.generatePersist(tableNames);
