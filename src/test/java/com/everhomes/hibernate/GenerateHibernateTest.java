@@ -25,11 +25,11 @@ public class GenerateHibernateTest {
 	@Test
 	public void test() throws Exception {
 		List<String> tableNames = new ArrayList<String>();
-		tableNames.add("tbl_shop_page");
-		tableNames.add("tbl_custom_page");
-		tableNames.add("tbl_custom_widget");
-		tableNames.add("tbl_commodity_group");
-		tableNames.add("tbl_commodity_item");
+		tableNames.add("tbl_payment_account");
+		tableNames.add("tbl_payment_user");
+		tableNames.add("tbl_payment_service");
+		tableNames.add("tbl_payment_order_contact");
+		tableNames.add("tbl_payment_settlement_rule");
 		
 		gerenateHibernateUtil.generatePersist(tableNames);
 	}

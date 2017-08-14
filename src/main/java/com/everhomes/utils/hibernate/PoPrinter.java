@@ -146,12 +146,14 @@ public class PoPrinter {
 	}
 
 	private void writeImport(BufferedWriter out) throws IOException {
-		String a2 = "import java.util.Date;";
+		String a1 = "import java.util.Date;";
+		String a2 = "import java.math.BigDecimal;";
 		String a3 = "import javax.persistence.Column;";
 		String a4 = "import javax.persistence.Entity;";
 		String a5 = "import javax.persistence.Id;";
 		String a6 = "import javax.persistence.Table;";
 
+		out.write(a1);out.newLine();
 		out.write(a2);out.newLine();out.newLine();
 		out.write(a3);out.newLine();
 		out.write(a4);out.newLine();

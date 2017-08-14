@@ -128,8 +128,10 @@ public class RespPrinter {
 
 	private void writeImport(BufferedWriter out) throws IOException {
 		String a1 = "import java.util.Date;";
+		String a2 = "import java.math.BigDecimal;";
 
-		out.write(a1);out.newLine();out.newLine();
+		out.write(a1);out.newLine();
+		out.write(a2);out.newLine();out.newLine();
 	}
 
 	private void writePackage(BufferedWriter out, String tableName) throws IOException {

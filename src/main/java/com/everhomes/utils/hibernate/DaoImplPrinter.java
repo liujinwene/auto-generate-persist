@@ -77,7 +77,7 @@ public class DaoImplPrinter {
 		
 		
 		out.write(TableConverter.appendSpacing(String.format(a1, className), 1));out.newLine();
-		if(!TableConverter.hasColumn(columns, "defalut_order")) {
+		if(!TableConverter.hasColumn(columns, "default_order")) {
 			out.write(TableConverter.appendSpacing(String.format(a2, className), 2));out.newLine();
 			out.write(TableConverter.appendSpacing(String.format(a3, className), 3));out.newLine();
 			out.write(TableConverter.appendSpacing(String.format(a4, className), 4));out.newLine();
@@ -315,7 +315,8 @@ public class DaoImplPrinter {
 		String className = TableConverter.getClassName(tableName);
 		String componentPackage = TableConverter.getComponentPackage(tableName);
 		
-		String a1 = "import java.util.List;";
+		String a0 = "import java.util.List;";
+		String a1 = "import java.math.BigDecimal;";
 		
 		String a21 = "import org.apache.commons.lang.StringUtils;";
 		String a2 = "import org.hibernate.Criteria;";
@@ -330,6 +331,7 @@ public class DaoImplPrinter {
 		String a12 = "import %s.%s.po.%s;";
 		String a13 = "import %s.common.command.ReSortCmd;";
 
+		out.write(a0);out.newLine();
 		out.write(a1);out.newLine();out.newLine();
 		
 		out.write(a21);out.newLine();
