@@ -30,6 +30,7 @@ public class GenerateHibernateTest {
 		tableNames.add("tbl_payment_service");
 		tableNames.add("tbl_payment_order_contact");
 		tableNames.add("tbl_payment_settlement_rule");
+		tableNames.add("tbl_payment_owner");
 		
 		gerenateHibernateUtil.generatePersist(tableNames);
 	}

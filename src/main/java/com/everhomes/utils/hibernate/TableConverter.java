@@ -64,8 +64,12 @@ public class TableConverter {
 			//循环
 			downLineIndex = name.indexOf(downLineChar);
 		}
-		if(firstUpperCase != null && firstUpperCase) {
-			return name.substring(0,1).toUpperCase()+name.substring(1);
+		if(firstUpperCase != null) {
+			if(firstUpperCase) {
+				return name.substring(0,1).toUpperCase()+name.substring(1);
+			} else {
+				return name.substring(0,1).toLowerCase()+name.substring(1);
+			}
 		}
 		return name;
 	}

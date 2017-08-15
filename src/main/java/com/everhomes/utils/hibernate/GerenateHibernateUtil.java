@@ -34,6 +34,10 @@ public class GerenateHibernateUtil {
 	@Autowired
 	private DaoImplPrinter daoImplPrinter;
 	@Autowired
+	private ServicePrinter servicePrinter;
+	@Autowired
+	private ServiceImplPrinter serviceImplPrinter;
+	@Autowired
 	private CmdPrinter cmdPrinter;
 	@Autowired
 	private RespPrinter respPrinter;
@@ -59,6 +63,7 @@ public class GerenateHibernateUtil {
 			}
 			genereatePo(tableName, columns);
 			genereateDao(tableName, columns);
+			genereateService(tableName, columns);
 			genereateCmd(tableName, columns);
 			generateResp(tableName, columns);
 			generateConstant(tableName, columns);
@@ -67,6 +72,7 @@ public class GerenateHibernateUtil {
 		state.close();
 		con.close();
 	}
+
 
 	private void generateConstant(String tableName, List<ColumnObject> columns) throws IOException {
 		constantPrinter.print(tableName, columns);
@@ -78,6 +84,11 @@ public class GerenateHibernateUtil {
 
 	private void genereateCmd(String tableName, List<ColumnObject> columns) throws IOException {
 		cmdPrinter.print(tableName, columns);
+	}
+	
+	private void genereateService(String tableName, List<ColumnObject> columns) throws IOException {
+		servicePrinter.print(tableName, columns);
+		serviceImplPrinter.print(tableName, columns);
 	}
 
 	private void genereateDao(String tableName, List<ColumnObject> columns) throws Exception {
